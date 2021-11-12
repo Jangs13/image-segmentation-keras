@@ -16,12 +16,7 @@ Implementation of various Deep Image Segmentation models in keras.
 - [Attention based Language Translation in Keras](https://github.com/divamgupta/attention-translation-keras)
 - [Ladder Network in Keras](https://github.com/divamgupta/ladder_network_keras)  model achives 98% test accuracy on MNIST with just 100 labeled examples
 
-### Top Contributors
 
-* [Divam Gupta](https://divamgupta.com) [![Twitter](https://img.shields.io/twitter/url.svg?label=Follow%20%40divamgupta&style=social&url=https%3A%2F%2Ftwitter.com%2Fdivamgupta)](https://twitter.com/divamgupta)
-* [Rounaq Jhunjhunu wala](https://github.com/rjalfa)
-* [Marius Juston](https://github.com/Marius-Juston)
-* [JaledMC](https://github.com/JaledMC)
 
 ## Models
 
@@ -59,7 +54,7 @@ Input Image            |  Output Segmentation Image
 ![](sample_images/3_input.jpg)  |  ![](sample_images/3_output.png)
 
 
-## Getting Started
+
 
 ### Prerequisites
 
@@ -67,81 +62,10 @@ Input Image            |  Output Segmentation Image
 * OpenCV for Python
 * Tensorflow ( recommended  version : 2.4.1 )
 
-```shell
-apt-get install -y libsm6 libxext6 libxrender-dev
-pip install opencv-python
-```
 
-### Installing
-
-Install the module
-
-Recommended way:
-```shell
-pip install --upgrade git+https://github.com/divamgupta/image-segmentation-keras
-```
-
-### or 
-
-```shell
-pip install keras-segmentation
-```
-
-### or
-
-```shell
-git clone https://github.com/divamgupta/image-segmentation-keras
-cd image-segmentation-keras
-python setup.py install
-```
-
-
-## Pre-trained models:
-```python
-from keras_segmentation.pretrained import pspnet_50_ADE_20K , pspnet_101_cityscapes, pspnet_101_voc12
-
-model = pspnet_50_ADE_20K() # load the pretrained model trained on ADE20k dataset
-
-model = pspnet_101_cityscapes() # load the pretrained model trained on Cityscapes dataset
-
-model = pspnet_101_voc12() # load the pretrained model trained on Pascal VOC 2012 dataset
-
-# load any of the 3 pretrained models
-
-out = model.predict_segmentation(
-    inp="input_image.jpg",
     out_fname="out.png"
 )
 
-```
-
-
-### Preparing the data for training
-
-You need to make two folders
-
-*  Images Folder - For all the training images
-* Annotations Folder - For the corresponding ground truth segmentation images
-
-The filenames of the annotation images should be same as the filenames of the RGB images.
-
-The size of the annotation image for the corresponding RGB image should be same.
-
-For each pixel in the RGB image, the class label of that pixel in the annotation image would be the value of the blue pixel.
-
-Example code to generate annotation images :
-
-```python
-import cv2
-import numpy as np
-
-ann_img = np.zeros((30,30,3)).astype('uint8')
-ann_img[ 3 , 4 ] = 1 # this would set the label of pixel 3,4 as 1
-
-cv2.imwrite( "ann_1.png" ,ann_img )
-```
-
-Only use bmp or png format for the annotation images.
 
 ## Download the sample prepared dataset
 
