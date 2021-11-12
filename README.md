@@ -1,5 +1,7 @@
 # Image Segmentation Keras : Implementation of Segnet, FCN, UNet, PSPNet and other models in Keras.
 
+* Open the folder to view the code
+
 
 Implementation of various Deep Image Segmentation models in keras.
 
